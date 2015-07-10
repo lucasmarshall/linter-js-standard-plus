@@ -1,0 +1,26 @@
+{
+  "name": "linter-js-standard-plus",
+  "main": "./lib/init",
+  "activationCommands": [],
+  "version": "0.1.0",
+  "description": "Linter plugin for JavaScript Standard Style",
+  "repository": "https://github.com/lucasmarshall/linter-js-standard-plus.git",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "loophole": "^1.0.0",
+    "resolve": "^1.1.6",
+    "semistandard": "^4.1.4",
+    "standard": "^3.13.2",
+    "uber-standard": "^3.7.1"
+  },
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  }
+}

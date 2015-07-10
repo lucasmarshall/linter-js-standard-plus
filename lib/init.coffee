@@ -5,18 +5,17 @@ path = require 'path'
 {CompositeDisposable} = require 'atom'
 {allowUnsafeNewFunctionAsync} = require 'loophole'
 
-linterPath = atom.packages.getLoadedPackage('linter').path
-findFile = require "#{linterPath}/lib/util"
-
 module.exports =
   config:
     standardPackage:
       type: 'string'
       default: 'standard'
       enum: ['standard', 'semi-standard', 'uber-standard']
+      description: '`standard` module to use'
     useGlobalStandard:
       type: 'boolean'
       default: false
+      description: 'Don\'t use the locally installed module, rather use the globally installed one'
     showRuleIdInMessage:
       type: 'boolean'
       default: false
@@ -29,9 +28,10 @@ module.exports =
   activate: ->
     console.log 'activate linter-js-standard-plus'
     @subscriptions = new CompositeDisposable
-    @subscriptions.add atom.config.observe 'linter-js-standard-plus.standardPackage',
-      (packageName) =>
-        @standardPackage = packageName
+    # TODO Can't subscribe to this and change on the fly without errors
+    # @subscriptions.add atom.config.observe 'linter-js-standard-plus.standardPackage',
+    #   (packageName) =>
+    #     @standardPackage = packageName
 
     @subscriptions.add atom.config.observe 'linter-js-standard-plus.useGlobalStandard',
       (useGlobalStandard) =>

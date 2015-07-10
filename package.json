@@ -10,7 +10,7 @@
     "atom": ">0.50.0"
   },
   "dependencies": {
-    "loophole": "git://github.com/lucasmarshall/loophole.git#master",
+    "loophole": "^1.0.0",
     "resolve": "^1.1.6",
     "semistandard": "^4.1.4",
     "standard": "^3.13.2",
